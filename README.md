@@ -33,7 +33,7 @@ embr quickstart deploy <your-user>/embr-sample-astro
 
 ```yaml
 platform: nodejs
-platformVersion: "20"
+platformVersion: "22"
 autoDeploy: true
 
 run:
@@ -48,8 +48,10 @@ healthCheck:
 
 ### Why these choices
 
-- `platform: nodejs` + `platformVersion: "20"` — Astro 5/6 requires Node 18.20+;
-  20 is the current LTS.
+- `platform: nodejs` + `platformVersion: "22"` — Astro 6 requires Node
+  **>= 22.12.0**. Embr's default (Node 20) will fail the build with
+  `"Node.js v20.x is not supported by Astro!"`, so pinning `platformVersion`
+  is load-bearing here.
 - **No `buildCommand`** — letting Oryx auto-detect from `package.json` is the
   reliable path. Setting `buildCommand` explicitly bypasses Oryx's Node
   pipeline and has been known to break Node apps on Embr.
