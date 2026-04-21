@@ -1,0 +1,44 @@
+---
+import Base from "../layouts/Base.astro";
+import HydrationCanary from "../components/HydrationCanary";
+
+// Force request-time SSR. Astro will happily pre-render a page with no
+// request-dependent inputs even in `output: "server"` mode if it looks
+// static — opting out with `prerender = false` proves the Node runtime
+// is actually handling each request on Embr.
+export const prerender = false;
+
+const renderedAt = new Date().toISOString();
+const nonce = Math.random().toString(36).slice(2, 10);
+---
+<Base title="Embr × Astro (SSR)">
+  <h1>Embr × Astro (SSR)</h1>
+  <p>
+    This page is rendered at request time by Astro's Node standalone server.
+    Refresh and watch the timestamp + nonce change — that's proof Embr is
+    running the Node.js runtime per request, not serving static HTML.
+  </p>
+
+  <section class="card">
+    <h2>Request-time SSR</h2>
+    <p><strong>Rendered at:</strong> <code>{renderedAt}</code></p>
+    <p><strong>Nonce:</strong> <code>{nonce}</code></p>
+  </section>
+
+  <section class="card">
+    <h2>Hydration canary</h2>
+    <p>
+      The counter below is a Preact island with <code>client:load</code>. If
+      the number increments when you click, Astro successfully hydrated the
+      SSR tree.
+    </p>
+    <HydrationCanary client:load />
+  </section>
+
+  <section class="card">
+    <h2>Explore</h2>
+    <ul>
+      <li><a href="/api/health">/api/health</a> — Embr health check target</li>
+    </ul>
+  </section>
+</Base>

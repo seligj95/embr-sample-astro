@@ -1,0 +1,22 @@
+{
+  "name": "embr-sample-astro",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "start": "HOST=0.0.0.0 PORT=${PORT:-3000} node ./dist/server/entry.mjs",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.1.8",
+    "@astrojs/node": "^10.0.5",
+    "@astrojs/preact": "^5.1.1",
+    "preact": "^10.29.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
