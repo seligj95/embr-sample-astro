@@ -1,5 +1,4 @@
 platform: nodejs
-platformVersion: "22"
 autoDeploy: true
 
 run:
