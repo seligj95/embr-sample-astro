@@ -14,9 +14,9 @@ It exercises:
 - A dedicated **`/api/health`** endpoint for Embr's health check
 
 See the companion
-[Next.js App Router sample](https://github.com/seligj95/embr-sample-nextjs-app-router)
+[Next.js App Router sample](https://github.com/embr-devs/embr-sample-nextjs-app-router)
 and
-[Next.js Pages Router sample](https://github.com/seligj95/embr-sample-nextjs-pages)
+[Next.js Pages Router sample](https://github.com/embr-devs/embr-sample-nextjs-pages)
 for the same shape in a different framework.
 
 ## Deploy to Embr
